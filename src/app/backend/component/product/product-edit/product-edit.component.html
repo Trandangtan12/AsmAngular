@@ -1,0 +1,71 @@
+  <div class="text-black mx-4 mt-4">
+    <div class="">
+    <form action="" onSubmit={handleSubmit(onHandleSubmit)}>
+      <div class="  grid grid-cols-3 gap-4">
+        <div class="rounded-lg p-4 col-span-2 border border-gray-200">
+      <div class="mb-2 ">
+        <div class="mb-2">
+        <label>Tên sản phẩm</label>
+        </div>
+        <div>
+      <input
+        type="text"
+        [(ngModel)]="product.name"
+        name="product.name"
+        class="border border-gray-300 p-2 w-full"
+      />
+      </div>
+    
+      
+      </div>
+      <div class="mb-2">
+        <div class="mb-2">
+        <label>Giá sản phẩm</label>
+        </div>
+        <div>
+      <input
+      [(ngModel)]="product.price"
+      name="product.price"
+        type="number"
+        class="border  border-gray-300 p-2 w-full"
+        id="update-price"
+      />
+      </div>
+     
+      </div>
+     
+     
+     
+    
+     <div class="mb-2">
+       <div class="mb-2">Mô tả sản phẩm: </div>
+       <textarea [(ngModel)]="product.desc" class="border border-gray-300 w-full" name="product.desc" id="update-description"  rows="7"></textarea>
+     </div>
+     <div class="">
+      <button (click)="onUpdateProduct()" type="submit" class="border rounded-lg border-gray-400 p-3 bg-gray-900 text-white w-full">
+        Lưu
+      </button>
+      </div>
+      </div>
+      <div>
+      <div class="mb-2">
+        <label for="">Ảnh sản phẩm</label>
+      </div>
+      <img src="{{product.img}}" class="mb-2 mt-2" alt="" />
+      <div class="mb-2">
+      <input type="hidden" [(ngModel)]="product.img" name="product.img"/>
+      <input
+        type="file"
+        name="product.img"
+        [(ngModel)]="product.img"
+        (change)="onUpdateImage($event)"
+        class=""
+      />
+      </div>
+    </div>
+      </div>
+    </form>
+    </div>
+    
+  </div>
+  

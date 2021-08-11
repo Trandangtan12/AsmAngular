@@ -1,0 +1,56 @@
+<div class="mt-4 mx-4">
+    <div class="w-full overflow-hidden rounded-lg shadow-xs">
+    <div class="w-full overflow-x-auto">
+      <div class="text-black text-4xl uppercase mb-4 font-medium mt-4">quản lý sản phẩm</div>
+      <div class="mt-4 mb-4">
+    <a href="/admin/product-add"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    Thêm sản phẩm
+    </button></a>
+      </div>
+
+      <div class="mt-4 mb-4">
+       
+        </div>
+
+      <table class="w-full">
+        <thead>
+          <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
+          <th class="px-4 py-3">STT</th>
+            <th class="px-4 py-3">Sản phẩm <input placeholder="Search" class="border border-gray-400 p-1 rounded-lg" type="text" [(ngModel)]="searchText"  name="" id=""></th>
+            <th class="px-4 py-3">Giá sản phẩm</th>
+            <th class="px-4 py-3">Tình trạng</th>
+            <th class="px-4 py-3">Hành động </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
+          <tr *ngFor="let product of products | filter:searchText; let i = index" class="bg-gra-50 hover:bg-gray-100 text-gray-700 dark:text-gray-400">
+            <td class="px-4 py-3 text-sm">{{i + 1}}</td>
+            <td class="px-4 py-3">
+              <div class="flex items-center text-sm">
+                <div class="relative hidden w-20 h-20 mr-3 md:block">
+                  <img class="object-cover w-full h-full" [src]="product.img" alt="" />
+                </div>
+                <div>
+                  <p class="font-semibold">{{product.name}}</p>
+                  <p class="text-xs text-gray-600 dark:text-gray-400">Sản phẩm</p>
+                </div>
+              </div>
+            </td>
+            <td class="px-4 py-3 text-sm">{{product.price}}</td>
+            <td class="px-4 py-3 text-sm">
+              {{product.status ? 'Còn hàng': 'Hết hàng'}}
+            </td>
+            
+           
+            <td class="px-4 py-3 text-sm">
+            <a href="admin/product-edit/{{product.id}}">
+            <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:bg-red-700 dark:text-red-100"><i class="fas fa-pen"></i> Sửa </span>
+        </a>
+              <button (click)="removeItem(product.id)" class="px-2 py-1 font-semibold leading-tight text-blue-700 bg-blue-100 rounded-full dark:bg-blue-700 dark:text-blue-100">
+               <i class="fas fa-trash-alt"></i> Delete
+              </button>
+            
+            </td>
+          </tr>
+        </tbody>
+      </table>
