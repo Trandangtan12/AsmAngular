@@ -22,20 +22,32 @@ import firebase from 'firebase';
 import { environment } from 'src/environments/environment';
 import { DetailPageComponent } from './frontend/component/detail-page/detail-page.component';
 import { HttpClientModule } from '@angular/common/http';
-firebase.initializeApp(environment.config)
+firebase.initializeApp(environment.config);
 @NgModule({
-  declarations: [	
-    AppComponent,LayoutAdminComponent, HeaderAdminComponent, DashbroadComponent, SidebarAdminComponent, ProductComponent, ProductAddComponent, ProductEditComponent, LayoutWebsiteComponent, HeaderWebsiteComponent, NavWebsiteComponent, HomeComponent, BannerWebsiteComponent, DetailPageComponent,
-   ],
+  declarations: [
+    AppComponent,
+    LayoutAdminComponent,
+    HeaderAdminComponent,
+    DashbroadComponent,
+    SidebarAdminComponent,
+    ProductComponent,
+    ProductAddComponent,
+    ProductEditComponent,
+    LayoutWebsiteComponent,
+    HeaderWebsiteComponent,
+    NavWebsiteComponent,
+    HomeComponent,
+    BannerWebsiteComponent,
+    DetailPageComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    
   ],
   providers: [ProductService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
